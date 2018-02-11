@@ -1,0 +1,81 @@
+package com;
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+	public static void main(String []args) throws IOException
+	{
+		BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Text:");
+		String text = br.readLine();
+		
+		System.out.println("Prefix:");
+		String prefix = br.readLine();
+		System.out.println("Suffix:");
+		String suffix = br.readLine();
+		
+		String output = "";
+		int max_prefix_count = 0, prefix_count = 0,
+			max_suffix_count = 0, suffix_count = 0, 
+			sstr_start = 0, sstr_end = 0,
+			i=0,j=0;
+		
+		while(i<text.length())
+		{
+			int k=i,start=-1,end=-1;
+			j=0;prefix_count = 0;
+			
+			while((k<text.length() && j<prefix.length()) 
+					&& (text.charAt(k) != prefix.charAt(j)))
+			j++;
+			
+			while((k<text.length() && j<prefix.length()) 
+					&& (text.charAt(k) == prefix.charAt(j)))
+			{
+				if(start == -1)
+					start = k;
+				
+				prefix_count++;
+				k++; j++;
+			}
+
+			//update prefix index as we get the new string.
+			if(prefix_count > max_prefix_count)
+			{
+				max_prefix_count = prefix_count;
+				sstr_start = start;
+			}
+
+			k=i;j=0;
+			suffix_count = 0;
+
+			while((k<text.length() && j<suffix.length()) 
+					&& (text.charAt(k) != suffix.charAt(j)))
+				j++;
+			
+			while((k<text.length() && j<suffix.length()) 
+					&& (text.charAt(k) == suffix.charAt(j)))
+			{
+				suffix_count++;
+				k++; j++;
+			}
+
+			end = k;
+			
+			//update prefix index as we get the new string.
+			if(suffix_count > max_suffix_count)
+			{
+				max_suffix_count = suffix_count;
+				sstr_end = end;
+			}
+			i++;
+		}
+		if(sstr_end>sstr_start)
+			System.out.println("output:"+text.substring(sstr_start, sstr_end));
+		else
+			System.out.println("output:"+text.substring(sstr_start));
+	}

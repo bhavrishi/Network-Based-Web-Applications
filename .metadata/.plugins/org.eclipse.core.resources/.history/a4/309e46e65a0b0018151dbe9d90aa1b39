@@ -1,0 +1,86 @@
+package com;
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+	public static void main(String[] args) throws Exception {
+
+		Scanner in = new Scanner(System.in);
+		final String fileName = System.getenv("OUTPUT_PATH");
+		BufferedWriter bw = null;
+		if (fileName != null) {
+			bw = new BufferedWriter(new FileWriter(fileName));
+		} else {
+			bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		}
+
+		String[] res;
+		int ip_array_size = 0;
+		ip_array_size = Integer.parseInt(in.nextLine().trim());
+
+		String[] ip_array = new String[ip_array_size];
+		for (int i = 0; i < ip_array_size; i++) {
+			String ip_array_item;
+			try {
+				ip_array_item = in.nextLine();
+			} catch (Exception e) {
+				ip_array_item = null;
+			}
+			ip_array[i] = ip_array_item;
+		}
+
+		res = checkIPs(ip_array);
+		for (int res_i = 0; res_i < res.length; res_i++) {
+			bw.write(String.valueOf(res[res_i]));
+			bw.newLine();
+		}
+
+		bw.close();
+	}
+
+	static String[] checkIPs(String[] ip_array)
+	{
+	       String[] result = new String[1];
+	        String ip = Arrays.toString(ip_array);
+	Pattern pat;
+	        Matcher match;
+	        String ipv4="IPV4";
+	        String ipv6="IPV6";
+	        String non="Neither";
+	        final String ipv4Format="^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+					"([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+					"([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+					"([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+	        final String ipv6Format="^[0-9a-f]{1,4}:" + "[0-9a-f]{1,4}:" +
+					"[0-9a-f]{1,4}:" + "[0-9a-f]{1,4}:" +
+					"[0-9a-f]{1,4}:" + "[0-9a-f]{1,4}:" +
+					"[0-9a-f]{1,4}:" + "[0-9a-f]{1,4}$";
+	        if(ip.indexOf(".")>0)
+	        {
+	            pat=Pattern.compile(ipv4Format);
+	            match=pat.matcher(ip);
+	            if(match.matches())
+	            {
+	                result[0]=ipv4;
+	                System.out.println(ipv4);
+	            }
+	            else
+	               result[0]=non;
+	        }
+	else if(ip.indexOf(":")>0)
+	{
+	    pat=Pattern.compile(ipv6Format);
+	    match=pat.matcher(ip);
+	    if(match.matches())
+	    result[0]=ipv6;
+	    else
+	       result[0]=non;
+	}
+	else
+	    result[0]=non;
+	    return result;
+}}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;checkout.jsp&apos; to &apos;index.html&apos;&#x0D;&#x0A;- Original project: &apos;ch09_ex2_cart_war&apos;&#x0D;&#x0A;- Destination element: &apos;index.html&apos;&#x0D;&#x0A;- Original element: &apos;checkout.jsp&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" element1="WebContent/checkout.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1517719495237" target="/Babycare/WebContent/index.html" units="0" version="1.0"/>
+</session>

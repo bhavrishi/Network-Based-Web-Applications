@@ -1,0 +1,10 @@
+127.0.0.1 - - [28/Jan/2018:00:02:09 -0500] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:02:09 -0500] "GET /ch07_ex3_futureValue_war/ HTTP/1.1" 200 921
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:02:09 -0500] "GET /ch07_ex3_futureValue_war/styles/main.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:02:18 -0500] "POST /ch07_ex3_futureValue_war/calculate HTTP/1.1" 200 704
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:02:19 -0500] "GET /ch07_ex3_futureValue_war/index.jsp HTTP/1.1" 200 921
+127.0.0.1 - - [28/Jan/2018:00:18:32 -0500] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:18:33 -0500] "GET /ch07_ex3_futureValue_war/ HTTP/1.1" 200 921
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:18:33 -0500] "GET /ch07_ex3_futureValue_war/styles/main.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:19:27 -0500] "POST /ch07_ex3_futureValue_war/calculate HTTP/1.1" 200 702
+0:0:0:0:0:0:0:1 - - [28/Jan/2018:00:19:30 -0500] "GET /ch07_ex3_futureValue_war/index.jsp HTTP/1.1" 200 921

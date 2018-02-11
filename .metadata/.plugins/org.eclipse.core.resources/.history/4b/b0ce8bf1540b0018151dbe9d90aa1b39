@@ -1,0 +1,80 @@
+package com;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) throws IOException {
+		Scanner in = new Scanner(System.in);
+		final String fileName = System.getenv("OUTPUT_PATH");
+		BufferedWriter bw = null;
+		if (fileName != null) {
+			bw = new BufferedWriter(new FileWriter(fileName));
+		} else {
+			bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		}
+
+		String res;
+		String message;
+		try {
+			message = in.nextLine();
+		} catch (Exception e) {
+			message = null;
+		}
+
+		res = compressedString(message);
+		try {
+			bw.write(res);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		bw.newLine();
+
+		bw.close();
+	}
+
+	private static String compressedString(String str) {
+		String res=null;
+		if (str.isEmpty()) {
+		        return "";
+		    }
+
+		    char[] chars = str.toCharArray();
+		    StringBuilder builder = new StringBuilder();
+
+		    int count = 1;
+		    char prev = chars[0];
+		    for (int i = 1; i < chars.length; i++) {
+		        char current = chars[i];
+		        if (current == prev) {
+		            count++;
+		        } else {
+		            builder.append(prev).append(count);
+		            count = 1;
+		        }
+		        prev = current;
+		    }
+		    res= builder.append(prev).append(count).toString();
+		    System.out.println("res"+res);
+		    for(int j=0;j<builder.length();j++)
+	        {
+		    	System.out.println(builder.charAt(j));
+		    	char temp=builder.charAt(j);
+	            if(temp=='1')
+	            {
+	                System.out.println(builder.charAt(j));
+	                builder.deleteCharAt(j);
+	                
+	                
+	            }
+	        }   
+	        res=builder.toString();
+	return res;
+
+	}
+}
